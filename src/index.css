@@ -478,6 +478,10 @@ form button span::selection {
   pointer-events: none;
 }
 
+.feedback > button:disabled span {
+  color: chocolate;
+}
+
 .feedback > button svg {
   color: #d7dbe2;
   width: 50px;
