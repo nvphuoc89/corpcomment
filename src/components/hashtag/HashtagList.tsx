@@ -1,21 +1,19 @@
+import { useFeedbackItemStore } from "../../stores/feedbackItemStore";
 import HashtagItem from "./HashtagItem";
 
-type HastagListProps = {
-  companyList: string[];
-  handleSelectCompany: React.Dispatch<React.SetStateAction<string>>;
-};
+export default function HashtagList() {
+  const companyList = useFeedbackItemStore((state) => state.getCompanyList());
+  const setSelectedCompany = useFeedbackItemStore(
+    (state) => state.setSelectedCompany
+  );
 
-export default function HashtagList({
-  companyList,
-  handleSelectCompany,
-}: HastagListProps) {
   return (
     <ul className="hashtags">
       {companyList.map((company) => (
         <HashtagItem
           key={company}
           company={company}
-          onSelectCompany={handleSelectCompany}
+          onSelectCompany={setSelectedCompany}
         />
       ))}
     </ul>
